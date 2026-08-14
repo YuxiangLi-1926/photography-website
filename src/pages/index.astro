@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { gallerySections } from '../data/site';
+---
+
+<BaseLayout
+  title="Home | Yuxiang Li Photography"
+  description="A static personal photography portfolio foundation for Yuxiang Li."
+>
+  <PageIntro
+    eyebrow="Portfolio foundation"
+    title="Yuxiang Li Photography"
+    summary="A minimal static Astro foundation for a personal photography portfolio. Gallery images will be connected later from Cloudflare R2."
+  />
+
+  <section class="section" aria-labelledby="gallery-sections">
+    <div class="section-header">
+      <p class="section-kicker">Initial structure</p>
+      <h2 id="gallery-sections">Gallery Routes</h2>
+    </div>
+    <div class="route-grid">
+      {gallerySections.map((section) => (
+        <a class="route-card" href={section.href}>
+          <span>{section.title}</span>
+          <small>{section.description}</small>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

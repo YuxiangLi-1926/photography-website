@@ -1,0 +1,25 @@
+---
+import PageIntro from './PageIntro.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  summary: string;
+}
+
+const {
+  eyebrow = 'Placeholder route',
+  title,
+  summary,
+} = Astro.props;
+---
+
+<PageIntro eyebrow={eyebrow} title={title} summary={summary} />
+
+<section class="section placeholder-panel" aria-label={`${title} implementation notes`}>
+  <p>
+    This page is intentionally minimal for now. Photography assets and gallery data
+    will be added later, with production images served from Cloudflare R2 instead of
+    this repository.
+  </p>
+</section>
