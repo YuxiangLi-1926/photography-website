@@ -1,11 +1,15 @@
 ---
-import PlaceholderPage from '../components/PlaceholderPage.astro';
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+
+const photos = getPhotosByCategory('portrait');
 ---
 
 <BaseLayout title="Portrait | Yuxiang Li Photography" description="Portrait photography placeholder page.">
-  <PlaceholderPage
+  <CategoryGalleryPage
     title="Portrait"
-    summary="A future home for individual portraits, editorial portraits, and personal sessions."
+    description="Individual portraits, editorial portraits, and personal sessions."
+    photos={photos}
   />
 </BaseLayout>

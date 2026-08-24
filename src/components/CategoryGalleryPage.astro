@@ -1,0 +1,19 @@
+---
+import type { Photo } from '../data/galleryTypes';
+import PhotoGallery from './PhotoGallery.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  photos: readonly Photo[];
+}
+
+const { title, description, photos } = Astro.props;
+---
+
+<header class="gallery-page-header">
+  <h1>{title}</h1>
+  {description ? <p>{description}</p> : null}
+</header>
+
+<PhotoGallery photos={photos} />

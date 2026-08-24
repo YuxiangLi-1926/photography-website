@@ -1,11 +1,15 @@
 ---
-import PlaceholderPage from '../components/PlaceholderPage.astro';
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+
+const photos = getPhotosByCategory('my-work');
 ---
 
 <BaseLayout title="My Work | Yuxiang Li Photography" description="Selected photography work placeholder page.">
-  <PlaceholderPage
+  <CategoryGalleryPage
     title="My Work"
-    summary="A future index for selected projects, featured shoots, and portfolio highlights."
+    description="Selected projects, featured shoots, and portfolio highlights."
+    photos={photos}
   />
 </BaseLayout>

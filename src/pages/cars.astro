@@ -1,11 +1,15 @@
 ---
-import PlaceholderPage from '../components/PlaceholderPage.astro';
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+
+const photos = getPhotosByCategory('cars');
 ---
 
 <BaseLayout title="Cars | Yuxiang Li Photography" description="Automotive photography placeholder page.">
-  <PlaceholderPage
+  <CategoryGalleryPage
     title="Cars"
-    summary="A future home for automotive photography, detail studies, and motion-focused sets."
+    description="Automotive photography, detail studies, and motion-focused sets."
+    photos={photos}
   />
 </BaseLayout>

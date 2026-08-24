@@ -1,11 +1,15 @@
 ---
-import PlaceholderPage from '../components/PlaceholderPage.astro';
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+
+const photos = getPhotosByCategory('nightlife');
 ---
 
 <BaseLayout title="Nightlife | Yuxiang Li Photography" description="Nightlife photography placeholder page.">
-  <PlaceholderPage
+  <CategoryGalleryPage
     title="Nightlife"
-    summary="A future home for nightlife images, venue stories, and low-light photography sets."
+    description="Nightlife images, venue stories, and low-light photography sets."
+    photos={photos}
   />
 </BaseLayout>

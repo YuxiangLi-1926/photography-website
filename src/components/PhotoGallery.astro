@@ -1,0 +1,53 @@
+---
+import type { Photo } from '../data/galleryTypes';
+import { getImageUrl } from '../lib/gallery';
+
+interface Props {
+  photos: readonly Photo[];
+  emptyMessage?: string;
+}
+
+const {
+  photos,
+  emptyMessage = 'Work will be added here later.',
+} = Astro.props;
+
+const hasValidDimensions = (photo: Photo) => photo.width > 1 && photo.height > 1;
+
+const getOrientation = (photo: Photo) => {
+  if (!hasValidDimensions(photo)) {
+    return 'unknown';
+  }
+
+  if (photo.width > photo.height) {
+    return 'landscape';
+  }
+
+  if (photo.height > photo.width) {
+    return 'portrait';
+  }
+
+  return 'square';
+};
+---
+
+{
+  photos.length > 0 ? (
+    <section class="photo-gallery" aria-label="Photography gallery">
+      {photos.map((photo) => (
+        <figure class={`photo-gallery__item photo-gallery__item--${getOrientation(photo)}`}>
+          <img
+            src={getImageUrl(photo.key)}
+            alt={photo.altEn}
+            width={hasValidDimensions(photo) ? photo.width : undefined}
+            height={hasValidDimensions(photo) ? photo.height : undefined}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      ))}
+    </section>
+  ) : (
+    <p class="gallery-empty">{emptyMessage}</p>
+  )
+}

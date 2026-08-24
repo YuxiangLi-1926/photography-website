@@ -1,11 +1,15 @@
 ---
-import PlaceholderPage from '../components/PlaceholderPage.astro';
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+
+const photos = getPhotosByCategory('her');
 ---
 
 <BaseLayout title="Her | Yuxiang Li Photography" description="Dedicated personal gallery placeholder page.">
-  <PlaceholderPage
+  <CategoryGalleryPage
     title="Her"
-    summary="A future dedicated personal gallery with carefully selected image sets."
+    description="A dedicated personal gallery with carefully selected image sets."
+    photos={photos}
   />
 </BaseLayout>

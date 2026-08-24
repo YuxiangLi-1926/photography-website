@@ -1,11 +1,15 @@
 ---
-import PlaceholderPage from '../components/PlaceholderPage.astro';
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+
+const photos = getPhotosByCategory('food');
 ---
 
 <BaseLayout title="Food | Yuxiang Li Photography" description="Food photography placeholder page.">
-  <PlaceholderPage
+  <CategoryGalleryPage
     title="Food"
-    summary="A future home for restaurant, editorial, and product-focused food photography."
+    description="Restaurant, editorial, and product-focused food photography."
+    photos={photos}
   />
 </BaseLayout>
