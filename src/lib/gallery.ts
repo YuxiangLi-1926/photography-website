@@ -24,3 +24,15 @@ export function getPhotosByCategory(category: GalleryCategory): Photo[] {
 export function getFeaturedPhotos(): Photo[] {
   return sortPhotosByOrder(galleryManifest.filter((photo) => photo.featured));
 }
+
+export function getFeaturedPhotosByCategory(category: GalleryCategory): Photo[] {
+  return sortPhotosByOrder(
+    galleryManifest.filter((photo) => photo.category === category && photo.featured),
+  );
+}
+
+export function getFirstFeaturedPhotoByCategory(
+  category: GalleryCategory,
+): Photo | undefined {
+  return getFeaturedPhotosByCategory(category)[0];
+}

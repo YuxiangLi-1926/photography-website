@@ -1,0 +1,21 @@
+---
+interface ContactLink {
+  title: string;
+  href: string;
+}
+
+interface Props {
+  links: readonly ContactLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<section class="home-contact" aria-labelledby="home-contact-title">
+  <h2 id="home-contact-title">Let's make something.</h2>
+  <nav aria-label="Contact links">
+    {links.map((link) => (
+      <a href={link.href}>{link.title}</a>
+    ))}
+  </nav>
+</section>

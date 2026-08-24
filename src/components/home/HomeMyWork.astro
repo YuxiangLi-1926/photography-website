@@ -1,0 +1,33 @@
+---
+import type { Photo } from '../../data/galleryTypes';
+import { getImageUrl } from '../../lib/gallery';
+
+interface Props {
+  photos: readonly Photo[];
+}
+
+const { photos } = Astro.props;
+const [primaryPhoto, secondaryPhoto] = photos;
+---
+
+<section class="home-my-work" aria-labelledby="home-my-work-title">
+  <div class="home-my-work__copy">
+    <p class="home-section-label">Archive</p>
+    <h2 id="home-my-work-title">My Work</h2>
+    <p>Personal photographs, journeys and visual notes.</p>
+    <a href="/my-work/">View My Work</a>
+  </div>
+
+  {primaryPhoto ? (
+    <div class="home-my-work__images">
+      <figure>
+        <img src={getImageUrl(primaryPhoto.key)} alt={primaryPhoto.altEn} loading="lazy" decoding="async" />
+      </figure>
+      {secondaryPhoto ? (
+        <figure>
+          <img src={getImageUrl(secondaryPhoto.key)} alt={secondaryPhoto.altEn} loading="lazy" decoding="async" />
+        </figure>
+      ) : null}
+    </div>
+  ) : null}
+</section>

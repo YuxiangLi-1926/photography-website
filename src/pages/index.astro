@@ -1,31 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageIntro from '../components/PageIntro.astro';
-import { gallerySections } from '../data/site';
+import FeaturedWork from '../components/home/FeaturedWork.astro';
+import HomeContact from '../components/home/HomeContact.astro';
+import HomeHer from '../components/home/HomeHer.astro';
+import HomeHero from '../components/home/HomeHero.astro';
+import HomeIntro from '../components/home/HomeIntro.astro';
+import HomeMyWork from '../components/home/HomeMyWork.astro';
+import { contactLinks, homepageCategories } from '../data/site';
+import {
+  getFeaturedPhotos,
+  getFeaturedPhotosByCategory,
+  getFirstFeaturedPhotoByCategory,
+} from '../lib/gallery';
+
+const heroPhoto = getFeaturedPhotos()[0];
+const herPhoto = getFirstFeaturedPhotoByCategory('her');
+const myWorkPhotos = getFeaturedPhotosByCategory('my-work');
 ---
 
 <BaseLayout
   title="Home | Yuxiang Li Photography"
-  description="A static personal photography portfolio foundation for Yuxiang Li."
+  description="Yuxiang Li is a photographer in London, photographing people, events, places and the moments worth keeping."
+  bodyClass="home-page"
+  mainClass="home-shell"
 >
-  <PageIntro
-    eyebrow="Portfolio foundation"
-    title="Yuxiang Li Photography"
-    summary="A minimal static Astro foundation for a personal photography portfolio. Gallery images will be connected later from Cloudflare R2."
-  />
-
-  <section class="section" aria-labelledby="gallery-sections">
-    <div class="section-header">
-      <p class="section-kicker">Initial structure</p>
-      <h2 id="gallery-sections">Gallery Routes</h2>
-    </div>
-    <div class="route-grid">
-      {gallerySections.map((section) => (
-        <a class="route-card" href={section.href}>
-          <span>{section.title}</span>
-          <small>{section.description}</small>
-        </a>
-      ))}
-    </div>
-  </section>
+  <HomeHero photo={heroPhoto} />
+  <HomeIntro />
+  <FeaturedWork categories={homepageCategories} />
+  <HomeHer photo={herPhoto} />
+  <HomeMyWork photos={myWorkPhotos} />
+  <HomeContact links={contactLinks} />
 </BaseLayout>

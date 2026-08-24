@@ -6,11 +6,15 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  bodyClass?: string;
+  mainClass?: string;
 }
 
 const {
   title = site.name,
   description = site.description,
+  bodyClass,
+  mainClass = 'page-shell',
 } = Astro.props;
 ---
 
@@ -25,9 +29,9 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class={bodyClass}>
     <SiteHeader currentPath={Astro.url.pathname} />
-    <main class="page-shell">
+    <main class={mainClass}>
       <slot />
     </main>
   </body>

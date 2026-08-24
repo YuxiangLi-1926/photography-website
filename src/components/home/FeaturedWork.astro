@@ -1,0 +1,54 @@
+---
+import type { GalleryCategory, Photo } from '../../data/galleryTypes';
+import { getFirstFeaturedPhotoByCategory, getImageUrl } from '../../lib/gallery';
+
+interface FeatureCategory {
+  title: string;
+  category: GalleryCategory;
+  href: string;
+  description: string;
+}
+
+interface Props {
+  categories: readonly FeatureCategory[];
+}
+
+const { categories } = Astro.props;
+
+const features = categories
+  .map((category) => ({
+    ...category,
+    photo: getFirstFeaturedPhotoByCategory(category.category),
+  }))
+  .filter((feature): feature is FeatureCategory & { photo: Photo } => Boolean(feature.photo));
+---
+
+<section class="home-featured" aria-labelledby="featured-work-title">
+  <div class="home-section-heading">
+    <p class="home-section-label">Selected Work</p>
+    <h2 id="featured-work-title">Across people, events and places.</h2>
+  </div>
+
+  {features.length > 0 ? (
+    <div class="home-featured__layout">
+      {features.map((feature) => (
+        <a class="home-featured__item" href={feature.href}>
+          <figure>
+            <img
+              src={getImageUrl(feature.photo.key)}
+              alt={feature.photo.altEn}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div>
+            <span>{feature.title}</span>
+            <p>{feature.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <p class="home-empty-note">Selected category images will appear here as the archive grows.</p>
+  )}
+</section>

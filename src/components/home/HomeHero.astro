@@ -1,0 +1,31 @@
+---
+import type { Photo } from '../../data/galleryTypes';
+import { getImageUrl } from '../../lib/gallery';
+
+interface Props {
+  photo?: Photo;
+}
+
+const { photo } = Astro.props;
+---
+
+<section class={`home-hero${photo ? ' home-hero--image' : ' home-hero--fallback'}`} aria-label="Homepage hero">
+  {photo ? (
+    <img
+      class="home-hero__image"
+      src={getImageUrl(photo.key)}
+      alt={photo.altEn}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  ) : null}
+  <div class="home-hero__shade" aria-hidden="true"></div>
+  <div class="home-hero__content">
+    <p class="home-hero__kicker">PHOTOGRAPHY / LONDON</p>
+    <h1>YUXIANG LI</h1>
+    <p class="home-hero__line">Photographer in London</p>
+    <p class="home-hero__subjects">People · Events · Places</p>
+  </div>
+  <a class="home-hero__cue" href="#intro" aria-label="Scroll to introduction">Scroll</a>
+</section>

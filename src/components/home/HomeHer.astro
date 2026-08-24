@@ -1,0 +1,25 @@
+---
+import type { Photo } from '../../data/galleryTypes';
+import { getImageUrl } from '../../lib/gallery';
+
+interface Props {
+  photo?: Photo;
+}
+
+const { photo } = Astro.props;
+---
+
+<section class="home-her" aria-labelledby="home-her-title">
+  <div class="home-her__copy">
+    <p class="home-section-label">Personal</p>
+    <h2 id="home-her-title">HER.</h2>
+    <p>A personal collection.</p>
+    <a href="/her/">Enter Her</a>
+  </div>
+
+  {photo ? (
+    <figure class="home-her__image">
+      <img src={getImageUrl(photo.key)} alt={photo.altEn} loading="lazy" decoding="async" />
+    </figure>
+  ) : null}
+</section>
