@@ -1,5 +1,6 @@
 export const site = {
   name: 'Yuxiang Li Photography',
+  email: 'yuxiangli990226@gmail.com',
   description: 'Personal photography portfolio website',
 };
 
@@ -25,5 +26,5 @@ export const homepageCategories = [
 ] as const;
 
 export const contactLinks = [
-  { title: 'Email', href: 'mailto:dhrlyx@gmail.com' },
+  { title: 'Email', href: `mailto:${site.email}` },
 ];
