@@ -13,13 +13,13 @@ if not inventory_path.exists():
     inventory_path = ROOT / 'docs/adobe-source.json'
 projects = json.loads(inventory_path.read_text(encoding='utf-8'))
 mapping = {
-    'Campaign': ('campaigns', 'Campaign', 'event'),
+    'Campaign': ('campaigns', 'Events', 'event'),
     'London': ('london', 'London', 'my-work'),
     'Portrait': ('portrait', 'Portrait', 'portrait'),
     'Grads': ('grads', 'Grads', 'portrait'),
     'Food in Love': ('food-in-love', 'Food in Love', 'food'),
     'Edi': ('edi', 'Edi', 'my-work'),
-    'Night in London': ('night-in-london', 'Night in London', 'nightlife'),
+    'Night in London': ('night-in-london', 'Night in London', 'event'),
     'The White Cliff': ('the-white-cliff', 'The White Cliff', 'my-work'),
 }
 tail = ['cars-campaign', 'jaguar', 'real-estate', 'the-white-cliff', 'edi', 'spain', 'switzerland', 'netherland', 'doggy-kitty']

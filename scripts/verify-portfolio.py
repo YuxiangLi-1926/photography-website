@@ -16,7 +16,7 @@ assert len({p['id'] for p in photos}) == len(photos)
 assert len({p['key'] for p in photos}) == len(photos)
 assert len({p['slug'] for p in projects}) == len(projects)
 assert [p['slug'] for p in projects] == [p['slug'] for p in source]
-categories = {'event', 'nightlife', 'food', 'portrait', 'cars', 'her', 'my-work'}
+categories = {'event', 'nightlife', 'food', 'portrait', 'cars', 'her', 'my-work', 'sweetie'}
 for project, original in zip(projects, source):
     series = [p for p in photos if p['project'] == project['slug']]
     assert len(series) == project['photoCount'] == len(original['images'])
@@ -24,6 +24,8 @@ for project, original in zip(projects, source):
         assert [p['key'] for p in series] == [image['key'] for image in original['images']], project['slug']
     assert [p['order'] for p in series] == sorted(p['order'] for p in series)
     assert all(p['category'] in categories for p in series)
+    assert project['category'] == original['category']
+    assert all(p['category'] == project['category'] for p in series)
     for entry, width, height in [(p['key'], p['width'], p['height']) for p in series] + [(project['coverKey'], project['coverWidth'], project['coverHeight'])]:
         with Image.open(ROOT / 'public/media' / entry) as image:
             assert image.size == (width, height), entry

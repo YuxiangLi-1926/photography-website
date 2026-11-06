@@ -6,6 +6,7 @@ export const galleryCategories = [
   'cars',
   'her',
   'my-work',
+  'sweetie',
 ] as const;
 
 export type GalleryCategory = (typeof galleryCategories)[number];

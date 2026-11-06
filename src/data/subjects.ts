@@ -1,9 +1,8 @@
 export const projectSubjects = [
   { key: 'portrait', label: 'People' },
-  { key: 'event', label: 'Events' },
+  { key: 'event', label: 'Moments' },
   { key: 'food', label: 'Food' },
-  { key: 'nightlife', label: 'Nightlife' },
-  { key: 'cars', label: 'Cars' },
-  { key: 'my-work', label: 'Personal' },
+  { key: 'my-work', label: 'Places' },
+  { key: 'sweetie', label: 'Sweetie' },
   { key: 'her', label: 'Her' },
 ] as const;

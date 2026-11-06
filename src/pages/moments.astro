@@ -1,0 +1,9 @@
+---
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+const photos = getPhotosByCategory('event');
+---
+<BaseLayout title="Moments | Yuxiang Li Photography" description="Events, nightlife, campaigns, and moments worth keeping.">
+  <CategoryGalleryPage title="Moments" description="Events, nightlife, campaigns, and moments worth keeping." photos={photos} />
+</BaseLayout>

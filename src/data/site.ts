@@ -9,74 +9,19 @@ export const navigationLinks = [
 ];
 
 export const gallerySections = [
-  {
-    title: 'Event',
-    href: '/event/',
-    description: 'Placeholder for event photography collections.',
-  },
-  {
-    title: 'Nightlife',
-    href: '/nightlife/',
-    description: 'Placeholder for nightlife photography collections.',
-  },
-  {
-    title: 'Food',
-    href: '/food/',
-    description: 'Placeholder for food photography collections.',
-  },
-  {
-    title: 'Portrait',
-    href: '/portrait/',
-    description: 'Placeholder for portrait photography collections.',
-  },
-  {
-    title: 'Cars',
-    href: '/cars/',
-    description: 'Placeholder for automotive photography collections.',
-  },
-  {
-    title: 'Her',
-    href: '/her/',
-    description: 'Placeholder for a dedicated personal gallery.',
-  },
-  {
-    title: 'My Work',
-    href: '/my-work/',
-    description: 'Placeholder for selected work and featured projects.',
-  },
+  { title: 'People', href: '/portrait/', description: 'Portraits and graduation stories.' },
+  { title: 'Moments', href: '/moments/', description: 'Events, nightlife and campaigns.' },
+  { title: 'Food', href: '/food/', description: 'Food photography.' },
+  { title: 'Places', href: '/places/', description: 'Places, journeys and personal stories.' },
+  { title: 'Sweetie', href: '/sweetie/', description: 'Dogs, cats and their little moments.' },
 ];
 
 export const homepageCategories = [
-  {
-    title: 'Event',
-    category: 'event',
-    href: '/event/',
-    description: 'Atmosphere, arrivals, gatherings, and the shape of a night.',
-  },
-  {
-    title: 'Nightlife',
-    category: 'nightlife',
-    href: '/nightlife/',
-    description: 'Low light, movement, music, and the pulse after dark.',
-  },
-  {
-    title: 'Food',
-    category: 'food',
-    href: '/food/',
-    description: 'Restaurants, tables, textures, and the rituals around food.',
-  },
-  {
-    title: 'Portrait',
-    category: 'portrait',
-    href: '/portrait/',
-    description: 'Faces, presence, mood, and quiet personal detail.',
-  },
-  {
-    title: 'Cars',
-    category: 'cars',
-    href: '/cars/',
-    description: 'Form, speed, surfaces, and automotive character.',
-  },
+  { title: 'People', category: 'portrait', href: '/portrait/', description: 'Portraits and graduation stories.' },
+  { title: 'Moments', category: 'event', href: '/moments/', description: 'Events, nightlife and campaigns.' },
+  { title: 'Food', category: 'food', href: '/food/', description: 'Food photography.' },
+  { title: 'Places', category: 'my-work', href: '/places/', description: 'Places, journeys and personal stories.' },
+  { title: 'Sweetie', category: 'sweetie', href: '/sweetie/', description: 'Dogs, cats and their little moments.' },
 ] as const;
 
 export const contactLinks = [

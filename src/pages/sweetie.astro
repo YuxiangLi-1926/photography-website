@@ -1,0 +1,9 @@
+---
+import CategoryGalleryPage from '../components/CategoryGalleryPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPhotosByCategory } from '../lib/gallery';
+const photos = getPhotosByCategory('sweetie');
+---
+<BaseLayout title="Sweetie | Yuxiang Li Photography" description="Dogs, cats, and their little moments.">
+  <CategoryGalleryPage title="Sweetie" description="Dogs, cats, and their little moments." photos={photos} />
+</BaseLayout>

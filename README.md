@@ -46,6 +46,8 @@ npm run build
 ## Navigation and publication
 
 Project covers show a permanent subject badge, title, photo count and year.
+Current subjects are People, Moments, Food, Places and Sweetie; see
+[docs/subject-categories.md](docs/subject-categories.md) for membership and legacy links.
 Work and Contact remain directly visible on mobile. The Work page provides
 subject filters with accessible pressed states, announced result counts and
 the original series order within each selection.
