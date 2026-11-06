@@ -4,15 +4,7 @@ export const site = {
 };
 
 export const navigationLinks = [
-  { title: 'Home', href: '/' },
-  { title: 'Event', href: '/event/' },
-  { title: 'Nightlife', href: '/nightlife/' },
-  { title: 'Food', href: '/food/' },
-  { title: 'Portrait', href: '/portrait/' },
-  { title: 'Cars', href: '/cars/' },
-  { title: 'Her', href: '/her/' },
-  { title: 'My Work', href: '/my-work/' },
-  { title: 'About', href: '/about/' },
+  { title: 'Work', href: '/work/' },
   { title: 'Contact', href: '/contact/' },
 ];
 
@@ -88,7 +80,5 @@ export const homepageCategories = [
 ] as const;
 
 export const contactLinks = [
-  { title: 'Instagram', href: '#' },
-  { title: 'Xiaohongshu', href: '#' },
-  { title: 'Email', href: 'mailto:hello@example.com' },
+  { title: 'Email', href: 'mailto:dhrlyx@gmail.com' },
 ];

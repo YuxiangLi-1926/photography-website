@@ -5,7 +5,7 @@ import type { GalleryCategory, Photo } from '../data/galleryTypes';
 export const photos = sortPhotosByOrder(galleryManifest);
 
 export function getImageUrl(key: string): string {
-  const baseUrl = mediaConfig.r2BaseUrl.replace(/\/$/, '');
+  const baseUrl = (import.meta.env.PUBLIC_PORTFOLIO_MEDIA_URL || mediaConfig.r2BaseUrl).replace(/\/$/, '');
   const objectKey = key.replace(/^\//, '');
 
   return `${baseUrl}/${objectKey}`;

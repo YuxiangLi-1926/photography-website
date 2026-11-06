@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Restorable photography exports; keep large images outside Git.
+public/media/
+output/

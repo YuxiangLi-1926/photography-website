@@ -1,0 +1,116 @@
+{
+  "projects": [
+    {
+      "slug": "jaguar",
+      "before": 49,
+      "after": 15,
+      "added": 0,
+      "removed": 34,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "grads",
+      "before": 15,
+      "after": 15,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "campaigns",
+      "before": 17,
+      "after": 14,
+      "added": 0,
+      "removed": 3,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "doggy-kitty",
+      "before": 30,
+      "after": 30,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "food-in-love",
+      "before": 15,
+      "after": 15,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "portrait",
+      "before": 26,
+      "after": 26,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "london",
+      "before": 23,
+      "after": 23,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "cars-campaign",
+      "before": 29,
+      "after": 29,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "real-estate",
+      "before": 17,
+      "after": 17,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "spain",
+      "before": 11,
+      "after": 11,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "netherland",
+      "before": 13,
+      "after": 13,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    },
+    {
+      "slug": "switzerland",
+      "before": 12,
+      "after": 12,
+      "added": 0,
+      "removed": 0,
+      "reordered": false,
+      "coverChanged": false
+    }
+  ],
+  "removedProjects": [],
+  "uploadKeys": [],
+  "beforePhotos": 257,
+  "afterPhotos": 220
+}

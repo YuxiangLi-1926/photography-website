@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import catalog from '../../data/projects.json';
+import { galleryManifest } from '../../data/galleryManifest';
+import { getImageUrl } from '../../lib/gallery';
+export function getStaticPaths() {
+  return catalog.map(project => ({ params: { slug: project.slug }, props: { project } }));
+}
+const { project } = Astro.props;
+const photos = galleryManifest.filter(photo => photo.project === project.slug);
+const index = catalog.findIndex(p => p.slug === project.slug);
+const related = [1, 2, 3].map(offset => catalog[(index + offset) % catalog.length]);
+---
+<BaseLayout title={project.title + ' | Yuxiang Li Photography'} description={project.title + ', ' + project.year + '. A photography series by Yuxiang Li.'} mainClass="portfolio-shell">
+  <header class="project-heading">
+    <a class="portfolio-back" href="/work/">← All work</a>
+    <p class="portfolio-eyebrow">{project.year} / {photos.length} photographs</p>
+    <h1>{project.title}</h1>
+    {project.description && <p class="project-description">{project.description}</p>}
+  </header>
+  <section class="series-grid" aria-label={project.title + ' photographs'}>
+    {photos.map((photo, index) => (
+      <a class="series-photo" href={getImageUrl(photo.key)} data-photo
+        data-caption={project.title + ' · ' + (index + 1) + ' / ' + photos.length}
+        style={'--ratio: ' + photo.width / photo.height} aria-label={'Enlarge ' + photo.altEn}>
+        <img src={getImageUrl(photo.key)} alt={photo.altEn} width={photo.width} height={photo.height}
+          loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
+      </a>
+    ))}
+  </section>
+  <section class="portfolio-related" aria-label="More photography projects">
+    <div class="portfolio-section-heading"><h2>More stories</h2><a href="/work/">All work ↗</a></div>
+    <ProjectList projects={related} compact />
+  </section>
+  <dialog class="photo-lightbox" aria-label="Enlarged photograph">
+    <button type="button" class="photo-lightbox__close" aria-label="Close photograph">Close ×</button>
+    <button type="button" class="photo-lightbox__previous" aria-label="Previous photograph">←</button>
+    <figure><img alt="" /><figcaption aria-live="polite"></figcaption></figure>
+    <button type="button" class="photo-lightbox__next" aria-label="Next photograph">→</button>
+  </dialog>
+</BaseLayout>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.photo-lightbox');
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-photo]'));
+  if (dialog && links.length) {
+    const image = dialog.querySelector('img')!;
+    const caption = dialog.querySelector('figcaption')!;
+    let current = 0;
+    let opener: HTMLAnchorElement;
+    const show = (index: number) => {
+      current = (index + links.length) % links.length;
+      image.src = links[current].href;
+      image.alt = links[current].querySelector('img')!.alt;
+      caption.textContent = links[current].dataset.caption!;
+    };
+    links.forEach((link, index) => link.addEventListener('click', event => {
+      event.preventDefault();
+      opener = link;
+      show(index);
+      dialog.showModal();
+      document.documentElement.classList.add('lightbox-open');
+    }));
+    dialog.querySelector('.photo-lightbox__close')!.addEventListener('click', () => dialog.close());
+    dialog.querySelector('.photo-lightbox__previous')!.addEventListener('click', () => show(current - 1));
+    dialog.querySelector('.photo-lightbox__next')!.addEventListener('click', () => show(current + 1));
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('lightbox-open');
+      opener?.focus();
+    });
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(current + (event.key === 'ArrowLeft' ? -1 : 1));
+      }
+    });
+  }
+</script>

@@ -2,6 +2,7 @@
 import SiteHeader from '../components/SiteHeader.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
+import '../styles/portfolio.css';
 
 interface Props {
   title?: string;
@@ -29,10 +30,11 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
   </head>
-  <body class={bodyClass}>
+  <body id="top" class:list={['portfolio-page', bodyClass]}>
     <SiteHeader currentPath={Astro.url.pathname} />
     <main class={mainClass}>
       <slot />
     </main>
+    <footer class="portfolio-footer"><a href="/">Yuxiang Li Photography</a><a href="/contact/">Get in touch ↗</a><a href="#top">Back to top ↑</a></footer>
   </body>
 </html>

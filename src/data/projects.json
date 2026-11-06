@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "grads",
+    "title": "Grads",
+    "year": 2023,
+    "category": "portrait",
+    "description": "",
+    "coverKey": "adobe/grads/cover.jpg",
+    "coverWidth": 1365,
+    "coverHeight": 1023,
+    "photoCount": 31
+  },
+  {
+    "slug": "campaigns",
+    "title": "Campaign",
+    "year": 2025,
+    "category": "event",
+    "description": "",
+    "coverKey": "adobe/campaigns/cover.jpg",
+    "coverWidth": 1706,
+    "coverHeight": 1280,
+    "photoCount": 23
+  },
+  {
+    "slug": "food-in-love",
+    "title": "Food in Love",
+    "year": 2024,
+    "category": "food",
+    "description": "",
+    "coverKey": "adobe/food-in-love/cover.jpg",
+    "coverWidth": 1366,
+    "coverHeight": 1024,
+    "photoCount": 44
+  },
+  {
+    "slug": "portrait",
+    "title": "Portrait",
+    "year": 2018,
+    "category": "portrait",
+    "description": "",
+    "coverKey": "adobe/portrait/cover.jpg",
+    "coverWidth": 1706,
+    "coverHeight": 1280,
+    "photoCount": 44
+  },
+  {
+    "slug": "london",
+    "title": "London",
+    "year": 2024,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "adobe/london/cover.jpg",
+    "coverWidth": 1089,
+    "coverHeight": 817,
+    "photoCount": 24
+  },
+  {
+    "slug": "night-in-london",
+    "title": "Night in London",
+    "year": 2025,
+    "category": "nightlife",
+    "description": "",
+    "coverKey": "portfolio/night-in-london/b3d0a3f311a08b5e6c3f.jpg",
+    "coverWidth": 1920,
+    "coverHeight": 1280,
+    "photoCount": 36
+  },
+  {
+    "slug": "cars-campaign",
+    "title": "Cars & Campaign",
+    "year": 2020,
+    "category": "cars",
+    "description": "Cars Official in China\nCampaigns & Models",
+    "coverKey": "adobe/cars-campaign/cover.jpg",
+    "coverWidth": 1920,
+    "coverHeight": 1440,
+    "photoCount": 29
+  },
+  {
+    "slug": "jaguar",
+    "title": "Jaguar",
+    "year": 2025,
+    "category": "cars",
+    "description": "",
+    "coverKey": "adobe/jaguar/cover.jpg",
+    "coverWidth": 1820,
+    "coverHeight": 1365,
+    "photoCount": 15
+  },
+  {
+    "slug": "real-estate",
+    "title": "Real Estate",
+    "year": 2022,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "adobe/real-estate/cover.jpg",
+    "coverWidth": 1365,
+    "coverHeight": 1023,
+    "photoCount": 17
+  },
+  {
+    "slug": "the-white-cliff",
+    "title": "The White Cliff",
+    "year": 2026,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "portfolio/the-white-cliff/b848a2ba9d841b8feee6.jpg",
+    "coverWidth": 1920,
+    "coverHeight": 1280,
+    "photoCount": 10
+  },
+  {
+    "slug": "edi",
+    "title": "Edi",
+    "year": 2026,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "portfolio/edi/38ffd08ec2f0fd6bb8a1.jpg",
+    "coverWidth": 1280,
+    "coverHeight": 1920,
+    "photoCount": 7
+  },
+  {
+    "slug": "spain",
+    "title": "Spain🇪🇸",
+    "year": 2022,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "adobe/spain/cover.jpg",
+    "coverWidth": 1820,
+    "coverHeight": 1365,
+    "photoCount": 11
+  },
+  {
+    "slug": "switzerland",
+    "title": "Switzerland🇨🇭",
+    "year": 2024,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "adobe/switzerland/cover.jpg",
+    "coverWidth": 1706,
+    "coverHeight": 1280,
+    "photoCount": 12
+  },
+  {
+    "slug": "netherland",
+    "title": "Netherland🇳🇱",
+    "year": 2024,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "adobe/netherland/cover.jpg",
+    "coverWidth": 1365,
+    "coverHeight": 1023,
+    "photoCount": 13
+  },
+  {
+    "slug": "doggy-kitty",
+    "title": "DOGGY & KITTY",
+    "year": 2024,
+    "category": "my-work",
+    "description": "",
+    "coverKey": "adobe/doggy-kitty/cover.jpg",
+    "coverWidth": 1920,
+    "coverHeight": 1440,
+    "photoCount": 30
+  }
+]

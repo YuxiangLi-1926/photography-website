@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectList from './ProjectList.astro';
+import catalog from '../data/projects.json';
+import { projectSubjects } from '../data/subjects';
+const years = catalog.map(project => project.year);
+const subjects = projectSubjects.filter(subject => catalog.some(project => project.category === subject.key));
+---
+<BaseLayout title="Work | Yuxiang Li Photography" description="Photography and visual stories by Yuxiang Li. People, places, cars and the moments in between." mainClass="portfolio-shell">
+  <header class="portfolio-intro">
+    <p class="portfolio-eyebrow">London · Photography &amp; film</p>
+    <h1>People. Places.<br />The moments between.</h1>
+    <p class="portfolio-intro__note">I'm Yuxiang Li, a photographer and videographer in London.</p>
+  </header>
+  <section aria-label="Selected photography projects">
+    <nav class="work-filters" aria-label="Filter projects by subject">
+      <button type="button" data-filter="all" aria-pressed="true" aria-controls="work-results">All work <span>{catalog.length}</span></button>
+      {subjects.map(subject => (
+        <button type="button" data-filter={subject.key} aria-pressed="false" aria-controls="work-results">
+          {subject.label}<span>{catalog.filter(project => project.category === subject.key).length}</span>
+        </button>
+      ))}
+    </nav>
+    <div class="portfolio-section-heading"><h2>Selected work</h2><span>{catalog.length} series · {Math.min(...years)}—{Math.max(...years)}</span></div>
+    <div id="work-results">
+      <p class="work-result-count" role="status" aria-live="polite" aria-atomic="true">{catalog.length} series</p>
+      <ProjectList />
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+  const cards = Array.from(document.querySelectorAll<HTMLAnchorElement>('#work-results .project-card'));
+  const status = document.querySelector('.work-result-count');
+  filters.forEach(button => button.addEventListener('click', () => {
+    const category = button.dataset.filter;
+    filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+    cards.forEach(card => { card.hidden = category !== 'all' && card.dataset.category !== category; });
+    const count = cards.filter(card => !card.hidden).length;
+    if (status) status.textContent = count + ' series';
+    button.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }));
+</script>

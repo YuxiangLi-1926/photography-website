@@ -1,0 +1,24 @@
+---
+import catalog from '../data/projects.json';
+import { getImageUrl } from '../lib/gallery';
+import { projectSubjects } from '../data/subjects';
+interface Props { projects?: typeof catalog; compact?: boolean; }
+const { projects = catalog, compact = false } = Astro.props;
+---
+<div class:list={['project-list', { 'project-list--compact': compact }]}>
+  {projects.map((project, index) => (
+    <a class="project-card" href={'/projects/' + project.slug + '/'} data-category={project.category}>
+      <div class="project-card__image">
+        <img src={getImageUrl(project.coverKey)} alt={project.title + ' photography series'}
+          width={project.coverWidth} height={project.coverHeight}
+          loading={index === 0 && !compact ? 'eager' : 'lazy'} decoding="async" />
+      </div>
+      <div class="project-card__copy">
+        <span class="project-card__subject">{projectSubjects.find(subject => subject.key === project.category)?.label}</span>
+        <h2>{project.title}</h2>
+        <p>{project.photoCount} photos · {project.year}</p>
+        <span class="project-card__open" aria-hidden="true">↗</span>
+      </div>
+    </a>
+  ))}
+</div>

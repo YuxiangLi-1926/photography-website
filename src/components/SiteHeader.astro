@@ -1,31 +1,12 @@
 ---
 import { navigationLinks, site } from '../data/site';
-
-interface Props {
-  currentPath: string;
-}
-
+interface Props { currentPath: string; }
 const { currentPath } = Astro.props;
-
-const isActive = (href: string) => {
-  if (href === '/') {
-    return currentPath === '/';
-  }
-
-  return currentPath.startsWith(href);
-};
+const isActive = (href: string) => href === '/work/' ? currentPath !== '/contact/' : currentPath.startsWith(href);
 ---
-
-<header class="site-header">
-  <a class="site-brand" href="/" aria-label={`${site.name} home`}>
-    <span>YL</span>
-    <strong>{site.name}</strong>
-  </a>
-  <nav class="site-nav" aria-label="Main navigation">
-    {navigationLinks.map((link) => (
-      <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
-        {link.title}
-      </a>
-    ))}
+<header class="portfolio-header">
+  <a class="portfolio-brand" href="/" aria-label={site.name + ' home'}>Yuxiang Li<span>Photography</span></a>
+  <nav class="portfolio-desktop-nav" aria-label="Main navigation">
+    {navigationLinks.map(link => <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.title}</a>)}
   </nav>
 </header>
